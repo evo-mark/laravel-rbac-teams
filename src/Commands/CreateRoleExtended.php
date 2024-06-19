@@ -9,6 +9,12 @@ use Spatie\Permission\PermissionRegistrar;
 
 class CreateRoleExtended extends CreateRole
 {
+    protected $signature = 'permission:create-role-extended
+    {name : The name of the role}
+    {guard? : The name of the guard}
+    {permissions? : A list of permissions to assign to the role, separated by | }
+    {--team-id=}';
+
     public function handle(PermissionRegistrar $permissionRegistrar)
     {
         $roleClass = app(RoleContract::class);

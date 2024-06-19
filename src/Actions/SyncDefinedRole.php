@@ -29,6 +29,6 @@ class SyncDefinedRole extends Action
             $fields['--team-id'] = $teamId;
         }
 
-        Artisan::call('permission:create-role', $fields);
+        Artisan::call('permission:create-role-extended', $fields);
     }
 }
