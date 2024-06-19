@@ -3,6 +3,7 @@
 namespace BinaryCats\LaravelRbac;
 
 use BinaryCats\LaravelRbac\Commands\AbilityMakeCommand;
+use BinaryCats\LaravelRbac\Commands\CreateRoleExtended;
 use BinaryCats\LaravelRbac\Commands\DefinedRoleMakeCommand;
 use BinaryCats\LaravelRbac\Commands\RbacResetCommand;
 use Illuminate\Contracts\Foundation\Application;
@@ -20,6 +21,7 @@ class RbacServiceProvider extends PackageServiceProvider
                 AbilityMakeCommand::class,
                 DefinedRoleMakeCommand::class,
                 RbacResetCommand::class,
+                CreateRoleExtended::class
             ]);
     }
 

@@ -20,14 +20,13 @@ class SyncDefinedRole extends Action
             })->implode('|');
 
         $teamsEnabled = config('permission.teams');
-        $teamsForeignKey = config('permission.column_names.team_foreign_key');
         $fields = [
             'name'        => $name,
             'guard'       => $guard,
             'permissions' => $permissions,
         ];
         if ($teamsEnabled) {
-            $fields[$teamsForeignKey] = $teamId;
+            $fields['--team-id'] = $teamId;
         }
 
         Artisan::call('permission:create-role', $fields);
