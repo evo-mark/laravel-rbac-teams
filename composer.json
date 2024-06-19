@@ -1,5 +1,5 @@
 {
-    "name": "binary-cats/laravel-rbac",
+    "name": "evo-mark/laravel-rbac-teams",
     "description": "Laravel 11 enum-backed RBAC extension of spatie/laravel-permission",
     "keywords": [
         "binary-cats",
@@ -7,13 +7,17 @@
         "laravel",
         "rbac"
     ],
-    "homepage": "https://github.com/binary-cats/laravel-rbac",
+    "homepage": "https://github.com/craigrileyuk/laravel-rbac",
     "license": "MIT",
     "authors": [
         {
             "name": "Cyrill N Kalita",
             "email": "cyrill.kalita@gmail.com",
             "role": "Developer"
+        },
+        {
+            "name": "Craig Riley",
+            "email": "c.riley@evomark.co.uk"
         }
     ],
     "require": {
@@ -39,10 +43,6 @@
             "BinaryCats\\LaravelRbac\\Tests\\": "tests/"
         }
     },
-    "suggest": {
-        "binary-cats/laravel-mailgun-webhooks": "Handle Mailgun webhooks in your Laravel application",
-        "binary-cats/laravel-sku": "Generate SKUs for Eloquent models"
-    },
     "scripts": {
         "test": "vendor/bin/phpunit"
     },
@@ -57,10 +57,10 @@
             "aliases": {
                 "Rbac": "BinaryCats\\LaravelRbac\\Facades\\Rbac"
             }
-       },
+        },
         "branch-alias": {
             "dev-master": "1.x-dev"
-       }
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

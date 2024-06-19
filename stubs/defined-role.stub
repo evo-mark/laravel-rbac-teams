@@ -16,6 +16,9 @@ class {{ class }} extends DefinedRole
         'web'
     ];
 
+    /** @var array|string[]|int[]  */
+    protected array $teams = [];
+
     /**
      * List of enumerated permissions for the `web` guard
      *

@@ -14,6 +14,8 @@ abstract class DefinedRole implements DefinedRoleContract
 {
     /** @var array|string[] */
     protected array $guards = [];
+    /** @var array|string[]|int[] */
+    protected array $teams = [];
     protected string $name = '';
 
     /**
@@ -38,8 +40,16 @@ abstract class DefinedRole implements DefinedRoleContract
 
     public function handle(): void
     {
+        $teamsEnabled = config('permission.teams');
+
         foreach ($this->guards() as $guard) {
-            SyncDefinedRole::run($this->name(), $guard, $this->{$guard}());
+            if ($teamsEnabled && !empty($teams = $this->teams())) {
+                foreach ($teams as $team) {
+                    SyncDefinedRole::run($this->name(), $guard, $this->{$guard}(), teamId: $team);
+                }
+            } else {
+                SyncDefinedRole::run($this->name(), $guard, $this->{$guard}());
+            }
         }
     }
 
@@ -49,5 +59,13 @@ abstract class DefinedRole implements DefinedRoleContract
     protected function guards(): array
     {
         return $this->guards;
+    }
+
+    /**
+     * @return array|string[]|int[]
+     */
+    protected function teams(): array
+    {
+        return $this->teams;
     }
 }
